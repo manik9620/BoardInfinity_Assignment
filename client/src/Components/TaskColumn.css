@@ -1,0 +1,40 @@
+.task-column {
+  border-radius: 15px;
+  background-color: white;
+  /* border: 2px solid green; */
+  width: 21vw;
+  text-align: center;
+}
+
+.task-column.todo .task-column-title {
+  background-color: #8a30e5; /* Light Cyan for TODO */
+  color: white; /* Darker cyan for contrast */
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.task-column.in-progress .task-column-title {
+  background-color: #ffc04f; /* Light Yellow for In Progress */
+  color: black; /* Darker yellow for contrast */
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.task-column.completed .task-column-title {
+  background-color: #06c270; /* Light Green for Completed */
+  color: white; /* Darker green for contrast */
+  padding: 10px;
+  margin: 0;
+  border-radius: 15px 15px 0 0;
+}
+
+.task-column-data{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+  gap: 10px;
+}

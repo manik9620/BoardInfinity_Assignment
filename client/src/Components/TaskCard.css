@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.task-card {
+  border: 2px solid #E3E3E3;
+  border-radius: 15px;
+  width: 80%;
+  text-align: left;
+  padding: 13px 13px;
+  box-shadow: 1px 1px 10px rgba(228, 228, 228, 0.5);
+}
+
+.priority {
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #333; 
+  margin-bottom: 0.3rem;
+}
+
+.priority-low {
+  color: #8A8A8A;
+  background-color: #F0FFDD;
+  width: 30px;
+}
+
+.priority-medium {
+  color: #FF00B8;
+  background-color: #FFECE1;
+  width: 68px;
+}
+
+.priority-high {
+  color: #FF5C00;
+  background-color: #FFECE1;
+  width: 38px;
+}
+
+.title-status-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-status-div h3 {
+  margin: 0.3rem 0;
+}
+
+
+
+.custom-select-button {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.custom-option {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.custom-option:hover {
+  background-color: #f0f0f0;
+}
+
+
+
+.default {
+  background-color: #ddd; /* Customize default color */
+}
+
+
+.description{
+  font-size: 12px;
+  color: #787486;
+  margin: 0.2rem 0;
+}
+
+hr{
+  color: #E3E3E3;
+}
+
+.date{
+  color: #828282;
+  margin: 0.5rem 0;
+}
+
+.date span{
+  margin: 0 0.5rem 0 0;
+}

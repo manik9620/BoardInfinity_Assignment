@@ -1,0 +1,8 @@
+.task-board{
+    /* border: 2px solid red; */
+    width: 67vw;
+    display: flex;
+    justify-content: space-between;
+    /* padding: 5px 15px; */
+}
+
