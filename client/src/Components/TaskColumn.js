@@ -1,20 +1,20 @@
-// TaskColumn.js
-import React from "react";
-import TaskCard from "./TaskCard";
-import "./TaskColumn.css";
+  import React from "react";
+  import TaskCard from "./TaskCard";
+  import "./TaskColumn.css";
 
-const TaskColumn = ({ title, tasks, className }) => {
-  const contentHeight = tasks.length > 0 ? 'auto' : 0; 
-  return (
-    <div className={`task-column ${className}`} style={{ height: contentHeight }}>
-      <p className="task-column-title">{title}</p>
-      <div className="task-column-data">
-        {tasks.map((task) => (
-          <TaskCard key={task.id} task={task} />
-        ))}
+  const TaskColumn = ({ title, tasks, className }) => {
+    return (
+      <div className={`task-column ${className}`}>
+        <p className="task-column-title">{title}</p>
+        <div className="task-column-data">
+          {tasks.length > 0 ? (
+            tasks.map((task) => <TaskCard key={task.id} task={task} className={className} />)
+          ) : (
+            <p className="no-tasks">No tasks available</p>
+          )}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  };
 
-export default TaskColumn;
+  export default TaskColumn;

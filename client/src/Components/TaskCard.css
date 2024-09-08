@@ -10,6 +10,11 @@
   text-align: left;
   padding: 13px 13px;
   box-shadow: 1px 1px 10px rgba(228, 228, 228, 0.5);
+
+  background-image: linear-gradient(to bottom, #000 50%, transparent 50%);
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: 2px 60px;
 }
 
 .priority {
@@ -38,9 +43,9 @@
 }
 
 .delete-task-btn {
-  padding: 8px 12px;
+  padding: 7px 9px;
   border: none;
-  background-color: #FF5C00;
+  background-color: #ed5801;
   border-radius: 9px;
 }
 
@@ -135,9 +140,70 @@ hr{
   background: none;
 }
 
+
+
 .move-buttons button:hover{
   color: rgb(71, 71, 71);
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
+.popup-overlay {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  z-index: 1000; 
+}
+
+.popup {
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001; 
+  border-radius: 8px; 
+  width: 400px; 
+  max-width: 90%; 
+}
+
+
+.popup-content h2 {
+  margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.popup-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.popup-buttons .cancel-button {
+  background-color: #b90202;
+  color: #ffffff;
+}
+
+.cancel-button:hover{
+  background-color: #6d0101;
+}
+
+.popup-buttons .confirm-button {
+  background-color: #01dd64;
+  color: white;
+}
+
+.confirm-button:hover{
+  background-color: #029743;
+}

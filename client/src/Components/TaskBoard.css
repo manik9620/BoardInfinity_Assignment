@@ -1,8 +1,36 @@
-.task-board{
-    /* border: 2px solid red; */
-    width: 69vw;
+.task-board {
     display: flex;
     justify-content: space-between;
-    /* padding: 5px 15px; */
-}
+    align-items: flex-start; /* Ensure columns align at the top and grow based on content */
+    gap: 15px;
+    width: 70vw;
 
+    /* Border thickness and height */
+  }
+  
+  .task-column {
+    width: 32%;
+    min-width: 250px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .task-column-title {
+    font-size: 1rem;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .task-column-data {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .no-tasks {
+    text-align: center;
+    color: #888;
+    font-size: 1rem;
+    margin: 20px 0;
+  }

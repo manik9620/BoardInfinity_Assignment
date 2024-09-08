@@ -3,14 +3,23 @@ import TaskContext from "../context/TaskContext";
 import "./TaskCard.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const TaskCard = ({ task, className }) => {
+const TaskCard = ({ task }) => {
   const { updateTaskStatus, moveTaskBetweenLists, deleteTask } =
     useContext(TaskContext);
 
   const [isMoving, setIsMoving] = useState(false);
   const [moveDirection, setMoveDirection] = useState(null);
+  const [isPopupVisible, setIsPopupVisible] = useState(false);
 
   const cardRef = useRef(null);
+
+  const handleOpenPopup = () => {
+    setIsPopupVisible(true);
+  };
+
+  const handleClosePopup = () => {
+    setIsPopupVisible(false);
+  };
 
   const handleMoveTask = (direction) => {
     setIsMoving(true);
@@ -58,13 +67,12 @@ const TaskCard = ({ task, className }) => {
 
   return (
     <div className={`task-card `} ref={cardRef}>
-
       <div className="priority-deletebtn-div">
         <p className={`priority ${priorityColor[task.priority] || "default"}`}>
           {task.priority}
         </p>
-        <button onClick={handleDeleteTask} className="delete-task-btn">
-          <i className="bi bi-trash-fill"></i> 
+        <button onClick={handleOpenPopup} className="delete-task-btn">
+          <i className="bi bi-trash-fill"></i>
         </button>
       </div>
 
@@ -88,16 +96,35 @@ const TaskCard = ({ task, className }) => {
           disabled={isMoving || task.status === "todo"}
           onClick={() => handleMoveTask("left")}
         >
-          <i className="bi bi-arrow-left-circle-fill"></i>
+          <i class="bi bi-caret-left-fill"></i>
         </button>
         <button
           className="move-right"
           disabled={isMoving || task.status === "completed"}
           onClick={() => handleMoveTask("right")}
         >
-          <i className="bi bi-arrow-right-circle-fill"></i>
+          <i class="bi bi-caret-right-fill"></i>
         </button>
       </div>
+
+      {isPopupVisible && (
+        <>
+          <div className="popup-overlay" />
+          <div className="popup">
+            <div className="popup-content">
+              <h2>Are you sure you want to delete?</h2>
+              <div className="popup-buttons">
+                <button className="cancel-button" onClick={handleClosePopup}>
+                  Cancel
+                </button>
+                <button className="confirm-button" onClick={handleDeleteTask}>
+                  OK
+                </button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };

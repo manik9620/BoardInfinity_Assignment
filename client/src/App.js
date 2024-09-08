@@ -3,13 +3,14 @@ import React from 'react';
 import { TaskProvider } from './context/TaskContext';
 import TaskBoard from './Components/TaskBoard';
 import AddTaskForm from './Components/AddTaskForm';
-// import './styles.css';
+import Navbar from './Components/Navbar';
+import './App.css'
 
 const App = () => {
   return (
     <TaskProvider>
+        <Navbar/>
       <div className="app-container">
-        <h1>Desktop & Mobile Application</h1>
         <AddTaskForm />
         <TaskBoard />
       </div>
