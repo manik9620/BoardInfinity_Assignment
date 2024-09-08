@@ -1,40 +1,50 @@
 .task-column {
   border-radius: 15px;
   background-color: white;
-  /* border: 2px solid green; */
-  width: 21vw;
+  width: 21.5vw;
   text-align: center;
+  height: auto;
+  min-height: 150px; 
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .task-column.todo .task-column-title {
-  background-color: #8a30e5; /* Light Cyan for TODO */
-  color: white; /* Darker cyan for contrast */
+  background-color: #8a30e5;
+  color: white;
   padding: 10px;
   margin: 0;
   border-radius: 15px 15px 0 0;
 }
 
 .task-column.in-progress .task-column-title {
-  background-color: #ffc04f; /* Light Yellow for In Progress */
-  color: black; /* Darker yellow for contrast */
+  background-color: #ffc04f;
+  color: black;
   padding: 10px;
   margin: 0;
   border-radius: 15px 15px 0 0;
 }
 
 .task-column.completed .task-column-title {
-  background-color: #06c270; /* Light Green for Completed */
-  color: white; /* Darker green for contrast */
+  background-color: #06c270;
+  color: white;
   padding: 10px;
   margin: 0;
   border-radius: 15px 15px 0 0;
 }
 
-.task-column-data{
+.task-column-data {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start; 
   align-items: center;
   padding: 20px 0;
   gap: 10px;
+  flex-grow: 1; 
+}
+
+.no-tasks {
+  color: grey;
+  font-style: italic;
 }

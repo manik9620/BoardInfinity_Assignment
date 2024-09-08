@@ -37,6 +37,30 @@
   width: 38px;
 }
 
+.delete-task-btn {
+  padding: 8px 12px;
+  border: none;
+  background-color: #FF5C00;
+  border-radius: 9px;
+}
+
+.delete-task-btn:hover{
+  background-color: #893200;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.delete-task-btn i{
+  color: white;
+  font-size: 15px;
+}
+
+.priority-deletebtn-div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .title-status-div {
   display: flex;
   align-items: center;
@@ -44,7 +68,7 @@
 }
 
 .title-status-div h3 {
-  margin: 0.3rem 0;
+  margin-top: 0.3rem;
 }
 
 
@@ -81,7 +105,7 @@
 .description{
   font-size: 12px;
   color: #787486;
-  margin: 0.2rem 0;
+  margin: 0 0 0.5rem 0;
 }
 
 hr{
@@ -90,9 +114,30 @@ hr{
 
 .date{
   color: #828282;
-  margin: 0.5rem 0;
+  margin: 0.3rem 0 0 0;
 }
 
 .date span{
   margin: 0 0.5rem 0 0;
 }
+
+.move-buttons{
+  display: flex;
+  align-items: center  ;
+  justify-content: space-between;
+  margin: 0.7rem 0;
+}
+
+.move-buttons button{
+  font-weight: bold;
+  font-size: 30px;
+  border: none;
+  background: none;
+}
+
+.move-buttons button:hover{
+  color: rgb(71, 71, 71);
+  cursor: pointer;
+  transition: ease-in-out 0.2s;
+}
+
