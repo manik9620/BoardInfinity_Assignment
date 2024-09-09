@@ -3,7 +3,7 @@ import TaskContext from "../context/TaskContext";
 import "./TaskCard.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
-const TaskCard = ({ task }) => {
+const TaskCard = ({ task,className }) => {
   const { updateTask, moveTaskBetweenLists, deleteTask } = useContext(TaskContext);
 
   const [isEditingForm, setIsEditingForm] = useState(false);
@@ -101,7 +101,7 @@ const TaskCard = ({ task }) => {
   };
 
   return (
-    <div className={`task-card`} ref={cardRef}>
+    <div className={`task-card ${className}`} ref={cardRef}>
       <div className="priority-deletebtn-div">
         <p className={`priority ${priorityColor[newPriority] || "default"}`}>
           {newPriority}
