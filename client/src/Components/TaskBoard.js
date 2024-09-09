@@ -11,9 +11,9 @@ const TaskBoard = () => {
 
   return (
     <div className="task-board">
-      <TaskColumn title="TODO" tasks={getTasksByStatus("todo")} className = "todo"  />
-      <TaskColumn title="IN PROGRESS" tasks={getTasksByStatus("in-progress")} className = "in-progress" />
-      <TaskColumn title="COMPLETED" tasks={getTasksByStatus("completed")} className = "completed" />
+      <TaskColumn title="TODO" tasks={getTasksByStatus("todo")} classname = "todo"  />
+      <TaskColumn title="IN PROGRESS" tasks={getTasksByStatus("in-progress")} classname = "in-progress" />
+      <TaskColumn title="COMPLETED" tasks={getTasksByStatus("completed")} classname = "completed" />
     </div>
   );
 };

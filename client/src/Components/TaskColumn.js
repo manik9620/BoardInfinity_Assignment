@@ -2,13 +2,14 @@
   import TaskCard from "./TaskCard";
   import "./TaskColumn.css";
 
-  const TaskColumn = ({ title, tasks, className }) => {
+  const TaskColumn = ({ title, tasks, classname }) => {
+    const back = title==="TODO"?`#8a30e5`:title==="IN PROGRESS"?`#ffc04f`:`#06c270`;
     return (
-      <div className={`task-column ${className}`}>
-        <p className="task-column-title">{title}</p>
+      <div className={`task-column`}>
+        <p className={`task-column-title`} style={{margin:0, background:back,padding:"10px",borderRadius: "15px 15px 0 0"}}>{title}</p>
         <div className="task-column-data">
           {tasks.length > 0 ? (
-            tasks.map((task) => <TaskCard key={task.id} task={task} className={className} />)
+            tasks.map((task) => <TaskCard key={task.id} task={task} classname={`${classname}`} />)
           ) : (
             <p className="no-tasks">No tasks available</p>
           )}
