@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import TaskContext from "../context/TaskContext";
 import "./AddTaskForm.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
+import TaskContext from "../context/TaskContext";
 
 const AddTaskForm = () => {
   const { addTask } = useContext(TaskContext);
@@ -16,20 +16,30 @@ const AddTaskForm = () => {
     priority: "Low",
   });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    addTask({ ...task, id: Date.now() });
-    setTask({
-      title: "",
-      description: "",
-      date: "",
-      status: "todo",
-      priority: "Low",
-    });
-    setIsFormOpen(false);
+
+    try {
+      await addTask({
+        title: task.title,
+        description: task.description,
+        date: task.date,
+        status: task.status,
+        priority: task.priority,
+      });
+      setTask({
+        title: "",
+        description: "",
+        date: "",
+        status: "todo",
+        priority: "Low",
+      });
+      setIsFormOpen(false);
+    } catch (error) {
+      console.error("Error creating task:", error);
+    }
   };
 
-  // Toggle modal visibility
   const handleModalToggle = () => {
     setIsFormOpen(!isFormOpen);
   };
@@ -50,7 +60,7 @@ const AddTaskForm = () => {
             <form onSubmit={handleSubmit} className="add-task-form">
               <p>
                 <span>
-                  <i class="bi bi-plus-circle-fill"></i>
+                  <i className="bi bi-plus-circle-fill"></i>
                 </span>
                 Create New Task
               </p>

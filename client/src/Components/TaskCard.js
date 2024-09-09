@@ -4,12 +4,16 @@ import "./TaskCard.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 const TaskCard = ({ task }) => {
-  const { updateTaskStatus, moveTaskBetweenLists, deleteTask } =
-    useContext(TaskContext);
+  const { updateTask, moveTaskBetweenLists, deleteTask } = useContext(TaskContext);
 
+  const [isEditingForm, setIsEditingForm] = useState(false);
+  const [newTitle, setNewTitle] = useState(task.title || "");
+  const [newDescription, setNewDescription] = useState(task.description || "");
+  const [newDate, setNewDate] = useState(task.date || "");
+  const [newPriority, setNewPriority] = useState(task.priority || "Low");
   const [isMoving, setIsMoving] = useState(false);
-  const [moveDirection, setMoveDirection] = useState(null);
   const [isPopupVisible, setIsPopupVisible] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const cardRef = useRef(null);
 
@@ -21,16 +25,52 @@ const TaskCard = ({ task }) => {
     setIsPopupVisible(false);
   };
 
+  const handleEditForm = () => {
+    setIsEditingForm(true);
+  };
+
+  const handleFormChange = (e) => {
+    const { name, value } = e.target;
+    switch (name) {
+      case "title":
+        setNewTitle(value);
+        break;
+      case "description":
+        setNewDescription(value);
+        break;
+      case "date":
+        setNewDate(value);
+        break;
+      case "priority":
+        setNewPriority(value);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleFormSave = () => {
+    if (newTitle.trim() !== "") {
+      updateTask(task.id, {
+        title: newTitle,
+        description: newDescription,
+        date: newDate,
+        priority: newPriority,
+      });
+      setIsEditingForm(false);
+    }
+  };
+
+  const handleFormCancel = () => {
+    setIsEditingForm(false);
+  };
+
   const handleMoveTask = (direction) => {
     setIsMoving(true);
-    setMoveDirection(direction);
 
     if (cardRef.current) {
-      cardRef.current.style.transition =
-        "transform 0.3s ease, opacity 0.3s ease";
-      cardRef.current.style.transform = `translateX(${
-        direction === "left" ? "-80px" : "80px"
-      })`;
+      cardRef.current.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+      cardRef.current.style.transform = `translateX(${direction === "left" ? "-80px" : "80px"})`;
       cardRef.current.style.opacity = "0";
     }
 
@@ -40,9 +80,8 @@ const TaskCard = ({ task }) => {
           if (cardRef.current) {
             cardRef.current.style.transform = "translateX(0)";
             cardRef.current.style.opacity = "1";
-            setIsMoving(false);
-            setMoveDirection(null);
           }
+          setIsMoving(false);
         })
         .catch((error) => {
           console.error("Error moving task:", error);
@@ -50,10 +89,6 @@ const TaskCard = ({ task }) => {
         });
     }, 300);
   };
-
-  // const handleStatusChange = (e) => {
-  //   updateTaskStatus(task.id, e.target.value);
-  // };
 
   const handleDeleteTask = () => {
     deleteTask(task.id);
@@ -66,14 +101,28 @@ const TaskCard = ({ task }) => {
   };
 
   return (
-    <div className={`task-card `} ref={cardRef}>
+    <div className={`task-card`} ref={cardRef}>
       <div className="priority-deletebtn-div">
-        <p className={`priority ${priorityColor[task.priority] || "default"}`}>
-          {task.priority}
+        <p className={`priority ${priorityColor[newPriority] || "default"}`}>
+          {newPriority}
         </p>
-        <button onClick={handleOpenPopup} className="delete-task-btn">
-          <i className="bi bi-trash-fill"></i>
-        </button>
+        <div className="position-relative">
+          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="btn btn-outline-secondary">
+          <i class="bi bi-three-dots-vertical"></i>
+          </button>
+          {isMenuOpen && (
+            <div className="position-absolute end-0 mt-2">
+              <div className="btn-group">
+                <button onClick={handleOpenPopup} className="btn btn-danger">
+                  <i className="bi bi-trash-fill"></i> Delete
+                </button>
+                <button onClick={handleEditForm} className="btn btn-primary">
+                  <i className="bi bi-pencil"></i> Edit
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="title-status-div">
@@ -96,14 +145,14 @@ const TaskCard = ({ task }) => {
           disabled={isMoving || task.status === "todo"}
           onClick={() => handleMoveTask("left")}
         >
-          <i class="bi bi-caret-left-fill"></i>
+          <i className="bi bi-caret-left-fill"></i>
         </button>
         <button
           className="move-right"
           disabled={isMoving || task.status === "completed"}
           onClick={() => handleMoveTask("right")}
         >
-          <i class="bi bi-caret-right-fill"></i>
+          <i className="bi bi-caret-right-fill"></i>
         </button>
       </div>
 
@@ -124,6 +173,87 @@ const TaskCard = ({ task }) => {
             </div>
           </div>
         </>
+      )}
+
+      {isEditingForm && (
+        <div className="modal-overlay">
+          <div className="modal-container">
+            <button className="close-modal-btn" onClick={handleFormCancel}>
+              &times;
+            </button>
+            <form className="modal-form">
+              <div className="form-group">
+                <label htmlFor="title">
+                  Title <span>*</span>
+                </label>
+                <input
+                  type="text"
+                  id="title"
+                  name="title"
+                  value={newTitle}
+                  onChange={handleFormChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="description">Description</label>
+                <textarea
+                  id="description"
+                  name="description"
+                  rows={3}
+                  value={newDescription}
+                  onChange={handleFormChange}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="date">
+                  Select Date <span>*</span>
+                </label>
+                <input
+                  type="date"
+                  id="date"
+                  name="date"
+                  value={newDate}
+                  onChange={handleFormChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="priority">Priority</label>
+                <select
+                  id="priority"
+                  name="priority"
+                  value={newPriority}
+                  onChange={handleFormChange}
+                >
+                  <option value="Low">Low</option>
+                  <option value="Medium">Medium</option>
+                  <option value="High">High</option>
+                </select>
+              </div>
+
+              <div className="form-actions">
+                <button
+                  type="button"
+                  className="cancel-btn"
+                  onClick={handleFormCancel}
+                >
+                  Cancel
+                </button>
+                <button
+                  type="button"
+                  className="save-btn"
+                  onClick={handleFormSave}
+                >
+                  Save
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
       )}
     </div>
   );

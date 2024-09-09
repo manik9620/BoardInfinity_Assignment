@@ -4,7 +4,7 @@
 }
 
 .task-card {
-  border: 2px solid #E3E3E3;
+  border: 2px solid #e3e3e3;
   border-radius: 15px;
   width: 80%;
   text-align: left;
@@ -20,25 +20,25 @@
 .priority {
   padding: 5px 10px;
   border-radius: 5px;
-  color: #333; 
+  color: #333;
   margin-bottom: 0.3rem;
 }
 
 .priority-low {
-  color: #8A8A8A;
-  background-color: #F0FFDD;
+  color: #8a8a8a;
+  background-color: #f0ffdd;
   width: 30px;
 }
 
 .priority-medium {
-  color: #FF00B8;
-  background-color: #FFECE1;
+  color: #ff00b8;
+  background-color: #ffece1;
   width: 68px;
 }
 
 .priority-high {
-  color: #FF5C00;
-  background-color: #FFECE1;
+  color: #ff5c00;
+  background-color: #ffece1;
   width: 38px;
 }
 
@@ -49,18 +49,18 @@
   border-radius: 9px;
 }
 
-.delete-task-btn:hover{
+.delete-task-btn:hover {
   background-color: #893200;
   cursor: pointer;
   transition: 0.3s ease;
 }
 
-.delete-task-btn i{
+.delete-task-btn i {
   color: white;
   font-size: 15px;
 }
 
-.priority-deletebtn-div{
+.priority-deletebtn-div {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,8 +75,6 @@
 .title-status-div h3 {
   margin-top: 0.3rem;
 }
-
-
 
 .custom-select-button {
   width: 100%;
@@ -100,78 +98,73 @@
   background-color: #f0f0f0;
 }
 
-
-
 .default {
   background-color: #ddd; /* Customize default color */
 }
 
-
-.description{
+.description {
   font-size: 12px;
   color: #787486;
   margin: 0 0 0.5rem 0;
 }
 
-hr{
-  color: #E3E3E3;
+hr {
+  color: #e3e3e3;
 }
 
-.date{
+.date {
   color: #828282;
   margin: 0.3rem 0 0 0;
 }
 
-.date span{
+.date span {
   margin: 0 0.5rem 0 0;
 }
 
-.move-buttons{
+.move-buttons {
   display: flex;
-  align-items: center  ;
+  align-items: center;
   justify-content: space-between;
   margin: 0.7rem 0;
 }
 
-.move-buttons button{
+.move-buttons button {
   font-weight: bold;
   font-size: 30px;
   border: none;
   background: none;
+  color: black;
 }
 
-
-
-.move-buttons button:hover{
+.move-buttons button:hover {
   color: rgb(71, 71, 71);
   cursor: pointer;
   transition: ease-in-out 0.2s;
 }
 
 .popup-overlay {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 1000; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
 }
 
 .popup {
-  position: fixed; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   background-color: #fff;
   padding: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1001; 
-  border-radius: 8px; 
-  width: 400px; 
-  max-width: 90%; 
+  z-index: 1001;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
 }
-
 
 .popup-content h2 {
   margin-bottom: 20px;
@@ -195,7 +188,7 @@ hr{
   color: #ffffff;
 }
 
-.cancel-button:hover{
+.cancel-button:hover {
   background-color: #6d0101;
 }
 
@@ -204,6 +197,204 @@ hr{
   color: white;
 }
 
-.confirm-button:hover{
+.confirm-button:hover {
   background-color: #029743;
+}
+
+.title-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.title-section .edit-title-btn {
+  padding: 7px 9px;
+  border-radius: 7px;
+  border: none;
+  background-color: rgb(39, 138, 220);
+}
+.title-section .edit-title-btn .bi {
+  color: white;
+}
+
+.title-section .edit-title-btn:hover {
+  background-color: rgb(29, 115, 195);
+  cursor: pointer;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal container */
+.modal-container {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  width: 80%;
+  max-width: 500px;
+  z-index: 1001;
+  position: relative;
+}
+
+/* Close button */
+.close-modal-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Form styles */
+.modal-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancel-btn,
+.save-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.cancel-btn {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.save-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+/* TaskCard.css */
+
+/* Container for the three-dotted icon button and dropdown menu */
+.position-relative {
+  position: relative;
+}
+
+/* Styling for the three-dotted icon button */
+.btn-outline-secondary {
+  border: none;
+  color: #333;
+  background-color: #f8f9fa;
+}
+
+.btn-outline-secondary:hover {
+  cursor: pointer;
+}
+
+.btn-outline-secondary .bi-three-dots-vertical {
+  font-size: 1.5rem;
+}
+
+.position-absolute {
+  position: absolute;
+  bottom: 25px; /* Position the menu below the button */
+  left: 20px; /* Align to the right edge of the parent */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  z-index: 1000; 
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: column;
+  /* border-radius: 10px; */
+  background-color: none;
+}
+
+.btn-group .btn {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.btn-group .btn i {
+  margin-right: 0.5rem;
+}
+
+
+
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 8px 8px 0 0;
+  border: none;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+  border-radius: 0 0 8px 8px;
+  border: none;
+}
+
+.btn-danger:hover {
+  background-color: #9f0202;
+  transition: 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  transition: 0.3s ease;
+
+}
+
+/* Add margin-top to position dropdown menu slightly below the button */
+.mt-2 {
+  margin-top: 0.5rem;
 }
