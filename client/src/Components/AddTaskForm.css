@@ -138,4 +138,10 @@
     width: 70vw;
     padding: 15px 20px;
   }
+
+  .modal{
+    width: 300px;
+    pad: 10px;
+    height: 65vh;
+  }
 }

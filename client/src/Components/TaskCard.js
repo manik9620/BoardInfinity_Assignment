@@ -182,6 +182,7 @@ const TaskCard = ({ task,classname }) => {
               &times;
             </button>
             <form className="modal-form">
+              <h3><i className="bi bi-pencil"></i>Edit Form</h3>
               <div className="form-group">
                 <label htmlFor="title">
                   Title <span>*</span>
