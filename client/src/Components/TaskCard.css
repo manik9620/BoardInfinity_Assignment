@@ -369,8 +369,8 @@ hr {
 .btn-group {
   display: flex;
   flex-direction: column;
-  /* border-radius: 10px; */
   background-color: none;
+  padding: 0;
 }
 
 .btn-group .btn {
@@ -389,16 +389,16 @@ hr {
 
 
 .btn-danger {
-  background-color: #ff0101;
+  background-color: #dd3535;
   color: white;
-  border-radius: 8px 8px 0 0;
+  border-radius: 6px 6px 0 0;
   border: none;
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #1a71ce;
   color: white;
-  border-radius: 0 0 8px 8px;
+  border-radius: 0 0 6px 6px;
   border: none;
 }
 

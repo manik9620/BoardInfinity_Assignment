@@ -20,6 +20,7 @@ const AddTaskForm = () => {
     e.preventDefault();
 
     try {
+
       await addTask({
         title: task.title,
         description: task.description,

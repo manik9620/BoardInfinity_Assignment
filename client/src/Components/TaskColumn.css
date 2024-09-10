@@ -20,7 +20,7 @@
 }
 
 .task-column.in-progress .task-column-title {
-  background-color: #ffc04f;
+  background-color: #ffc04f;  
   color: black;
   padding: 10px;
   margin: 0;
@@ -48,4 +48,18 @@
 .no-tasks {
   color: grey;
   font-style: italic;
+}
+
+@media (max-width:768px){
+  .task-column{
+   width: 25vw;
+  }
+}
+
+@media (max-width:480px){
+  .task-column{
+    flex-direction: column;
+    width: 100vw;
+    gap: 5px;
+  }
 }
